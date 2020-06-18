@@ -1,26 +1,54 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import "./App.css";
+import AddTask from "./components/AddTask/AddTask";
+import TaskList from "./components/TaskList/TaskList";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends Component {
+  state = {
+    tasks: [
+      {
+        id: 0,
+        text: "Pierwsze przykładowe zadanie.",
+        date: "2010-06-18",
+        important: true,
+        active: true,
+        finishDate: "2010-06-10",
+      },
+      {
+        id: 1,
+        text: "Kolejne przykładowe zadanie.",
+        date: "2010-07-08",
+        important: true,
+        active: true,
+        finishDate: "2010-07-01",
+      },
+      {
+        id: 2,
+        text: "Jeszcze coś do zrobienia.",
+        date: "2011-04-25",
+        important: true,
+        active: true,
+        finishDate: "2011-04-17",
+      },
+      {
+        id: 3,
+        text: "To juz wszystko.",
+        date: "2011-05-11",
+        important: true,
+        active: true,
+        finishDate: "2011-05-10",
+      },
+    ],
+  };
+  render() {
+    return (
+      <>
+        <h1>TODO APP</h1>
+        <AddTask />
+        <TaskList tasks={this.state.tasks} />
+      </>
+    );
+  }
 }
 
 export default App;
