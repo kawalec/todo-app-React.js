@@ -40,12 +40,29 @@ class App extends Component {
       },
     ],
   };
+
+  doneTask = (id) => {
+    console.log("done - " + id);
+  };
+
+  deleteTask = (id) => {
+    let tasks = [...this.state.tasks];
+    tasks = tasks.filter((task) => task.id !== id);
+    this.setState({
+      tasks,
+    });
+  };
+
   render() {
     return (
       <>
         <h1>TODO APP</h1>
         <AddTask />
-        <TaskList tasks={this.state.tasks} />
+        <TaskList
+          tasks={this.state.tasks}
+          doneTask={this.doneTask}
+          deleteTask={this.deleteTask}
+        />
       </>
     );
   }

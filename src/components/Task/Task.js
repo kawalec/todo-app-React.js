@@ -11,17 +11,13 @@ const Task = (props) => {
         <div className="task__date">{date}</div>
         <button
           className={("btn", "btn--done")}
-          onClick={() => {
-            console.log("done");
-          }}
+          onClick={() => props.doneTask(id)}
         >
           Zrobione
         </button>
         <button
           className={("btn", "btn--delete")}
-          onClick={() => {
-            console.log("delete");
-          }}
+          onClick={() => props.deleteTask(id)}
         >
           Usuń
         </button>

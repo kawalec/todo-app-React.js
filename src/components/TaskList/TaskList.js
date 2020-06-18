@@ -5,7 +5,12 @@ import TasksHeader from "../TasksHeader/TasksHeader";
 
 const TaskList = (props) => {
   const tasksList = props.tasks.map((task) => (
-    <Task key={task.id} task={task} />
+    <Task
+      key={task.id}
+      task={task}
+      doneTask={props.doneTask}
+      deleteTask={props.deleteTask}
+    />
   ));
   return (
     <>
