@@ -1,0 +1,23 @@
+.task {
+  display: flex;
+  width: 80%;
+  margin: 10px 20px;
+  padding: 5px;
+  border: 1px solid grey;
+}
+
+.task__id {
+  width: 10%;
+}
+
+.task__text {
+  width: 60%;
+}
+
+.task__date {
+  width: 15%;
+}
+
+.task__dactions {
+  width: 15%;
+}

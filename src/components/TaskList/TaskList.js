@@ -1,12 +1,16 @@
 import React from "react";
 import Task from "../Task/Task";
 import "./TaskList.scss";
+import TasksHeader from "../TasksHeader/TasksHeader";
 
-const TaskList = () => {
+const TaskList = (props) => {
+  const tasksList = props.tasks.map((task) => (
+    <Task key={task.id} task={task} />
+  ));
   return (
     <>
-      <h1>Lista zadań:</h1>
-      <Task />
+      <TasksHeader />
+      {tasksList}
     </>
   );
 };
