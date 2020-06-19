@@ -12,6 +12,10 @@
 
 .task__text {
   width: 60%;
+
+  &--important {
+    color: red;
+  }
 }
 
 .task__date {

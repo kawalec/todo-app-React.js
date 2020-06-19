@@ -19,7 +19,7 @@ class App extends Component {
         id: 1,
         text: "Kolejne przykładowe zadanie.",
         date: "2010-07-08",
-        important: true,
+        important: false,
         done: false,
         finishDate: "",
       },
@@ -28,14 +28,14 @@ class App extends Component {
         text: "Jeszcze coś do zrobienia.",
         date: "2011-04-25",
         important: true,
-        done: true,
+        done: false,
         finishDate: "",
       },
       {
         id: 3,
         text: "To juz wszystko.",
         date: "2011-05-11",
-        important: true,
+        important: false,
         done: false,
         finishDate: "",
       },
@@ -47,7 +47,11 @@ class App extends Component {
     tasks.forEach((task) => {
       if (task.id === id) {
         task.done = !task.done;
-        task.finishDate = new Date().getTime();
+        if (task.finishDate === "") {
+          task.finishDate = new Date().getTime();
+        } else {
+          task.finishDate = "";
+        }
       }
     });
     this.setState({
