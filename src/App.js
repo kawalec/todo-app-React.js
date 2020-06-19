@@ -69,7 +69,7 @@ class App extends Component {
 
   render() {
     return (
-      <>
+      <div className="todo-app">
         <h1>TODO LIST APP</h1>
         <AddTask />
         <TaskList
@@ -82,7 +82,7 @@ class App extends Component {
           doneTask={this.doneTask}
           deleteTask={this.deleteTask}
         />
-      </>
+      </div>
     );
   }
 }
