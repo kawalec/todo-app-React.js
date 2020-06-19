@@ -30,7 +30,12 @@ class AddTask extends Component {
   handleClick = (e) => {
     e.preventDefault();
     const { text, date, checked } = this.state;
-    const added = this.props.addTask(text, date, checked);
+    let added;
+    if (text.length > 2) {
+      added = this.props.addTask(text, date, checked);
+    } else {
+      alert("Treść zadania powinna mieć więcej niż dwa znaki!");
+    }
     if (added) {
       this.setState({
         text: "",
