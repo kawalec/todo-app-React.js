@@ -28,7 +28,7 @@ class App extends Component {
         text: "Jeszcze coś do zrobienia.",
         date: "2011-04-25",
         important: true,
-        done: false,
+        done: true,
         finishDate: "",
       },
       {
