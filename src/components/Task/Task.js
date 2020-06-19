@@ -2,7 +2,7 @@ import React from "react";
 import "./Task.scss";
 
 const Task = (props) => {
-  const { id, text, date } = props.task;
+  const { id, text, date, done } = props.task;
   return (
     <>
       <div className="task">
@@ -13,7 +13,7 @@ const Task = (props) => {
           className={("btn", "btn--done")}
           onClick={() => props.doneTask(id)}
         >
-          Zrobione
+          {done === false ? "Zrobione" : "Cofnij"}
         </button>
         <button
           className={("btn", "btn--delete")}

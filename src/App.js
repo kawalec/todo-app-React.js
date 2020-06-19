@@ -73,7 +73,11 @@ class App extends Component {
           doneTask={this.doneTask}
           deleteTask={this.deleteTask}
         />
-        <DoneTasks tasks={this.state.tasks} />
+        <DoneTasks
+          tasks={this.state.tasks}
+          doneTask={this.doneTask}
+          deleteTask={this.deleteTask}
+        />
       </>
     );
   }
