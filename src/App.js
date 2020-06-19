@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import "./App.css";
 import AddTask from "./components/AddTask/AddTask";
 import TaskList from "./components/TaskList/TaskList";
+import DoneTasks from "./components/DoneTasks/DoneTasks";
 
 class App extends Component {
   state = {
@@ -11,38 +12,47 @@ class App extends Component {
         text: "Pierwsze przykładowe zadanie.",
         date: "2010-06-18",
         important: true,
-        active: true,
-        finishDate: "2010-06-10",
+        done: false,
+        finishDate: "",
       },
       {
         id: 1,
         text: "Kolejne przykładowe zadanie.",
         date: "2010-07-08",
         important: true,
-        active: true,
-        finishDate: "2010-07-01",
+        done: false,
+        finishDate: "",
       },
       {
         id: 2,
         text: "Jeszcze coś do zrobienia.",
         date: "2011-04-25",
         important: true,
-        active: true,
-        finishDate: "2011-04-17",
+        done: false,
+        finishDate: "",
       },
       {
         id: 3,
         text: "To juz wszystko.",
         date: "2011-05-11",
         important: true,
-        active: true,
-        finishDate: "2011-05-10",
+        done: false,
+        finishDate: "",
       },
     ],
   };
 
   doneTask = (id) => {
-    console.log("done - " + id);
+    const tasks = [...this.state.tasks];
+    tasks.forEach((task) => {
+      if (task.id === id) {
+        task.done = !task.done;
+        task.finishDate = new Date().getTime();
+      }
+    });
+    this.setState({
+      tasks,
+    });
   };
 
   deleteTask = (id) => {
@@ -56,13 +66,14 @@ class App extends Component {
   render() {
     return (
       <>
-        <h1>TODO APP</h1>
+        <h1>TODO LIST APP</h1>
         <AddTask />
         <TaskList
           tasks={this.state.tasks}
           doneTask={this.doneTask}
           deleteTask={this.deleteTask}
         />
+        <DoneTasks tasks={this.state.tasks} />
       </>
     );
   }
