@@ -8,6 +8,25 @@ class AddTask extends Component {
     date: new Date().toISOString().slice(0, 10),
     checked: false,
   };
+
+  handleText = (e) => {
+    this.setState({
+      text: e.target.value,
+    });
+  };
+
+  handleData = (e) => {
+    this.setState({
+      date: e.target.value,
+    });
+  };
+
+  handleCheckbox = (e) => {
+    this.setState({
+      checked: e.target.checked,
+    });
+  };
+
   render() {
     const minDate = new Date().toISOString().slice(0, 10);
     const maxDate = minDate.slice(0, 4) * 1 + 1 + minDate.slice(4, 10);
@@ -25,6 +44,7 @@ class AddTask extends Component {
               type="text"
               placeholder="Treść zadania"
               value={this.state.text}
+              onChange={this.handleText}
             ></input>
           </section>
           <section className="form__section-two">
@@ -38,6 +58,7 @@ class AddTask extends Component {
               value={this.state.date}
               min={minDate}
               max={maxDate}
+              onChange={this.handleData}
             ></input>
             <label className="form__important-label" htmlFor="important">
               Ważne
@@ -47,11 +68,9 @@ class AddTask extends Component {
               id="important"
               type="checkbox"
               checked={this.state.checked}
+              onChange={this.handleCheckbox}
             ></input>
-            <button
-              className="form__submit-btn"
-              onClick={() => console.log("save")}
-            >
+            <button className="form__submit-btn" onClick={this.handleClick}>
               Zapisz
             </button>
           </section>
