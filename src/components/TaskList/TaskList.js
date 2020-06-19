@@ -15,8 +15,14 @@ const TaskList = (props) => {
   ));
   return (
     <>
-      <h2>Zadania do zrobienia:</h2>
-      <TasksHeader labels={["Id", "Zadania do zrobienia", "Termin", "Akcje"]} />
+      <h2>Zadania do zrobienia ({tasksInProgress.length})</h2>
+      {tasksInProgress.length > 0 ? (
+        <TasksHeader
+          labels={["Id", "Zadania do zrobienia", "Termin", "Akcje"]}
+        />
+      ) : (
+        <h3 className="task-list__message">"Brak zadań do wykonania!"</h3>
+      )}
       {tasksInProgress}
     </>
   );

@@ -15,11 +15,15 @@ const DoneTasks = (props) => {
   ));
   return (
     <>
-      <h2>Zrobione zadania:</h2>
-      <TasksHeader
-        labels={["Id", "Zrealizowane zadania", "Zrealizowane", "Akcje"]}
-      />
-      {tasksDone}
+      <h2>Ostatnio zrobione zadania ({tasksDone.length})</h2>
+      {tasksDone.length > 0 ? (
+        <TasksHeader
+          labels={["Id", "Zrealizowane zadania", "Zrealizowane", "Akcje"]}
+        />
+      ) : (
+        <h3 className="task-list__message">"Brak zrealizowanych zadań!"</h3>
+      )}
+      {tasksDone.slice(0, 10)}
     </>
   );
 };
