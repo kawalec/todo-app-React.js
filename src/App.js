@@ -5,6 +5,7 @@ import TaskList from "./components/TaskList/TaskList";
 import DoneTasks from "./components/DoneTasks/DoneTasks";
 
 class App extends Component {
+  counter = 5;
   state = {
     tasks: [
       {
@@ -67,11 +68,30 @@ class App extends Component {
     });
   };
 
+  addTask = (text, date, checked) => {
+    const task = {
+      id: this.counter,
+      text,
+      date,
+      important: checked,
+      done: false,
+      finishDate: "",
+    };
+    this.counter++;
+
+    this.setState((prevState) => ({
+      tasks: [...prevState.tasks, task],
+    }));
+
+    return true;
+  };
+
   render() {
+    console.log(this.counter);
     return (
       <div className="todo-app">
         <h1>TODO LIST APP</h1>
-        <AddTask />
+        <AddTask addTask={this.addTask} />
         <TaskList
           tasks={this.state.tasks}
           doneTask={this.doneTask}

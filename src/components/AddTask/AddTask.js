@@ -27,6 +27,19 @@ class AddTask extends Component {
     });
   };
 
+  handleClick = (e) => {
+    e.preventDefault();
+    const { text, date, checked } = this.state;
+    const added = this.props.addTask(text, date, checked);
+    if (added) {
+      this.setState({
+        text: "",
+        date: new Date().toISOString().slice(0, 10),
+        checked: false,
+      });
+    }
+  };
+
   render() {
     const minDate = new Date().toISOString().slice(0, 10);
     const maxDate = minDate.slice(0, 4) * 1 + 1 + minDate.slice(4, 10);
