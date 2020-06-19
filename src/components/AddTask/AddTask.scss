@@ -1,0 +1,21 @@
+.form {
+  margin: 20px;
+  width: 80%;
+  &__section-one {
+    height: 3em;
+  }
+  &__text {
+    width: 80%;
+    margin-left: 10px;
+  }
+
+  &__section-two {
+    height: 3em;
+  }
+  &__done {
+    margin: 0 50px 0 10px;
+  }
+  &__important {
+    margin-right: 100px;
+  }
+}
